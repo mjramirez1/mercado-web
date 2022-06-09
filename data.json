@@ -1,0 +1,27 @@
+{
+    "productos": [{
+        "nombre": "Platano",
+        "img": "banana.png"
+    },
+    {
+        "nombre": "Cebolla",
+        "url": "/cebolla",
+        "view": "cebolla-view"
+    },
+    {
+        "nombre": "Lechuga",
+        "url": "/lechuga",
+        "view": "lechuga-view"
+    },
+    {
+        "nombre": "Pimenton",
+        "url": "/pimneton",
+        "view": "pimneton-view"
+    },
+    {
+        "nombre": "Tomate",
+        "url": "/tomate",
+        "view": "tomate-view"
+    }
+    ]
+}
