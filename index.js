@@ -1,38 +1,36 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
-//const fs = require('fs').promises
 
-const productos = {
-    "productos": [{
-        "nombre": "Platano",
-        "img": "banana.png"
+const productos = [
+    {
+        nombre: "Platano",
+        img: "banana.png",
+        precio: 2.000
     },
     {
-        "nombre": "Cebolla",
-        "img": "cebollas.png"
+        nombre: "Cebolla",
+        img: "cebollas.png",
+        precio: 2.000
     },
     {
-        "nombre": "Lechuga",
-        "img": "lechuga.png"
+        nombre: "Lechuga",
+        img: "lechuga.png",
+        precio: 2.000
     },
     {
-        "nombre": "Pimenton",
-        "img": "pimenton.png"
+        nombre: "Pimenton",
+        img: "pimenton.png",
+        precio: 2.000
     },
     {
-        "nombre": "Tomate",
-        "img": "tomate.png"
+        nombre: "Tomate",
+        img: "tomate.png",
+        precio: 2.000
     }
     ]
-}
 
-/*
-const programa = async () => {
-    const data = await fs.readFile(__dirname + 'data.json')
-    const dataJSON = JSON.parse(data)
-    console.log(dataJSON)*/
-
+// server
 app.listen(3000, () => {
     console.log('El servidor está inicializado en el puerto 3000')
 })
@@ -47,52 +45,11 @@ app.engine(
 app.set('view engine', 'handlebars')
 
 // Middlewares
-app.use('/bootstrap', express.static(__dirname +
-    '/node_modules/bootstrap/dist/css'))
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
+app.use('/public', express.static(__dirname + '/assets'))
 
-app.use('/jquery', express.static(__dirname +'/node_modules/jquery/dist'))
-
-app.use('/public', express.static(__dirname +'/assets'))
-
-
+// Ruta a main
 app.get('/', function (req, res) {
-    res.render('Main', { layout: 'Main' })
+    res.render('Main', { layout: 'Main', productos })
 })
-
-
-
-
-/*
-app.get('/', function (req, res) {
-    res.render('Main', {
-        layout: 'Main',
-    })
-})
-
-app.get('/', function (req, res) {
-    res.render('Main', {
-        layout: 'Main',
-        productos: [
-            {
-                "nombre": "Platano",
-                "img": "banana.png"
-            }
-        ]
-    })
-})
-*/
-
-/*
-    dataJSON.productos.forEach(producto => {
-
-        app.get(producto.url, (req, res) => {
-            res.render(producto.view, {
-                layout: producto.view,
-                nombre:producto.nombre,
-                productos: dataJSON.productos
-            })
-        })
-    })
-
-}
-programa()*/

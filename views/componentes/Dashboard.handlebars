@@ -1,4 +1,12 @@
-<h1>{{nombre}}</h1>
-
-<!-- Se importó el partial enviándole páginas-->
-{{> Productos productos=productos}}
+{{#if productos}}
+<div class="container">
+    <div class="row">
+        {{#each productos}}
+        <div class="col-md-4 col-lg-3 col-sm-6">
+            {{>Productos productos=this
+            }}
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
