@@ -6,27 +6,32 @@ const productos = [
     {
         nombre: "Platano",
         img: "banana.png",
-        precio: 2.000
+        precio: 2000
     },
     {
         nombre: "Cebolla",
         img: "cebollas.png",
-        precio: 2.000
+        precio: 2000
     },
     {
         nombre: "Lechuga",
         img: "lechuga.png",
-        precio: 2.000
+        precio: 2000
     },
     {
         nombre: "Pimenton",
         img: "pimenton.png",
-        precio: 2.000
+        precio: 2000
     },
     {
         nombre: "Tomate",
         img: "tomate.png",
-        precio: 2.000
+        precio: 2000
+    },
+    {
+        nombre: "Papa",
+        img: "papas.png",
+        precio: 2000
     }
     ]
 
@@ -34,6 +39,11 @@ const productos = [
 app.listen(3000, () => {
     console.log('El servidor está inicializado en el puerto 3000')
 })
+// Middlewares
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
+app.use('/assets', express.static(__dirname + '/assets'))
+
 // configuración handelbars
 app.engine(
     'handlebars',
@@ -44,12 +54,8 @@ app.engine(
 )
 app.set('view engine', 'handlebars')
 
-// Middlewares
-app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
-app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
-app.use('/public', express.static(__dirname + '/assets'))
 
 // Ruta a main
 app.get('/', function (req, res) {
-    res.render('Main', { layout: 'Main', productos })
+    res.render('main', { layout: 'main', productos })
 })

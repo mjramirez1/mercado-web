@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="/bootstrap/bootstrap.css" />
 
     <!--Custum Css-->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
     {{>Navbar}}
     {{>Bienvenida}}
-    {{>Productos}}
+    {{>Dashboard productos=productos}}
     {{>Footer}}
+
+
     <script src="/jquery/jquery.js"></script>
     <script src="/BootstrapJs/bootstrap.js"></script>
 
